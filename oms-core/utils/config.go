@@ -4,7 +4,7 @@ import (
 	"github.com/spf13/viper"
 )
 
-// Config - Application Config
+// Config - Application Properties
 type Config struct {
 	ServerPort string `mapstructure:"SERVER_PORT"`
 	DBURL      string `mapstructure:"DBURL"`

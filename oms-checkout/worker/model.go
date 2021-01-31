@@ -4,8 +4,8 @@ import (
 	"sync"
 
 	pgxpool "github.com/jackc/pgx/v4/pgxpool"
-	"github.com/sofiukl/oms/oms-checkout/utils"
 	"github.com/sofiukl/oms/oms-core/models"
+	"github.com/sofiukl/oms/oms-core/utils"
 )
 
 // Work - This is WorkRequest model

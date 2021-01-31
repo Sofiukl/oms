@@ -1,7 +1,7 @@
 package worker
 
 import (
-	"fmt"
+	"log"
 
 	"github.com/sofiukl/oms/oms-checkout/api"
 )
@@ -32,12 +32,10 @@ func (w *Worker) Start() {
 			w.WorkerQueue <- w.WorkChannel
 			select {
 			case job := <-w.WorkChannel:
-
-				// Receive a work request.
-				fmt.Printf("worker %d: working on %s!\n", w.ID, job.Work.CartID)
-				//time.Sleep(40000 * time.Millisecond)
+				// Receive a work request
+				log.Printf("worker %d: working on %s!\n", w.ID, job.Work.CartID)
 				api.CheckoutProduct(job.Conn, job.Config, job.Work, job.Lock)
-				fmt.Printf("worker%d: work %s completed\n", w.ID, job.Work.CartID)
+				log.Printf("worker%d: work %s completed\n", w.ID, job.Work.CartID)
 			}
 		}
 	}()

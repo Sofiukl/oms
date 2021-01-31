@@ -8,8 +8,8 @@ import (
 
 	"github.com/gorilla/mux"
 
+	"github.com/sofiukl/oms/oms-core/utils"
 	"github.com/sofiukl/oms/oms-product/api"
-	"github.com/sofiukl/oms/oms-product/utils"
 
 	pgxpool "github.com/jackc/pgx/v4/pgxpool"
 )

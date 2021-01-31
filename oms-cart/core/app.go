@@ -9,7 +9,7 @@ import (
 	"github.com/gorilla/mux"
 
 	"github.com/sofiukl/oms/oms-cart/api"
-	"github.com/sofiukl/oms/oms-cart/utils"
+	"github.com/sofiukl/oms/oms-core/utils"
 
 	pgxpool "github.com/jackc/pgx/v4/pgxpool"
 )

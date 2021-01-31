@@ -10,14 +10,14 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/sofiukl/oms/oms-checkout/utils"
 	"github.com/sofiukl/oms/oms-checkout/worker"
 	"github.com/sofiukl/oms/oms-core/models"
+	"github.com/sofiukl/oms/oms-core/utils"
 
 	pgxpool "github.com/jackc/pgx/v4/pgxpool"
 )
 
-// WorkQueue - This is the work queues
+// WorkQueue - This is the checkout queues
 var WorkQueue = make(chan worker.Work, 100)
 
 // App - Application
@@ -28,7 +28,7 @@ type App struct {
 	Lock   *sync.RWMutex
 }
 
-// Initialize - This function initializes the application
+// Initialize the application
 func (a *App) Initialize() {
 
 	config, err := utils.LoadConfig(".")
@@ -49,7 +49,7 @@ func (a *App) Initialize() {
 	a.initializeRoutes()
 }
 
-// Run - This functio funs the application
+// Run the application
 func (a *App) Run(address string) {
 	fmt.Println("Application is running on port", address)
 	if err := http.ListenAndServe(address, a.Router); err != nil {
@@ -63,25 +63,27 @@ func (a *App) initializeRoutes() {
 }
 
 func (a *App) checkout(w http.ResponseWriter, r *http.Request) {
-	body := parseBody(r)
-	fmt.Println("IN THE STARTING OF HANDLER")
+	body, err := parseBody(r)
+	if err != nil {
+		utils.RespondWithError(w, http.StatusBadRequest, err.Error(), "")
+	}
 	work := worker.Work{Work: body, Config: a.Config, Conn: a.Conn, Lock: a.Lock}
 	WorkQueue <- work
-	fmt.Println("Work request queued")
+	log.Println("Checkout request queued")
 
 	w.WriteHeader(http.StatusCreated)
 	return
-
 }
 
-func parseBody(r *http.Request) models.CheckoutModel {
+func parseBody(r *http.Request) (models.CheckoutModel, error) {
 	decoder := json.NewDecoder(r.Body)
 
 	var checkoutBody models.CheckoutModel
 	err := decoder.Decode(&checkoutBody)
 
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return checkoutBody, fmt.Errorf("Please specify correct request body")
 	}
-	return checkoutBody
+	return checkoutBody, nil
 }

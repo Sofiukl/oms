@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/sofiukl/oms/oms-cart/utils"
 	"github.com/sofiukl/oms/oms-core/models"
+	"github.com/sofiukl/oms/oms-core/utils"
 )
 
 // FindCart - find cart
