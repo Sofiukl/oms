@@ -250,6 +250,8 @@ github.com/sofiukl/oms v0.0.0-20210131135120-95e0b9fa1df6 h1:tvrE7op97q1BJ1KIsmO
 github.com/sofiukl/oms v0.0.0-20210131141455-edc2108e1c17 h1:VMz/fFxImagUHZkK3xWYB0Q6tFrHQBKwFV3ptpfL188=
 github.com/sofiukl/oms v1.0.0 h1:Ua8nEuB4AXf4YIdGq42F8Zv6f0VZgnFV1GRIih+R5GU=
 github.com/sofiukl/oms v1.0.0/go.mod h1:4HMyA2/4dz7bWz1qS7migZjb1LgLUM1wkDImf3/qbaA=
+github.com/sofiukl/oms v1.0.1 h1:hrI38FZuwn9N6pjuE7EVA5UrqDYRUE4jiTTFjdB1dMw=
+github.com/sofiukl/oms v1.0.1/go.mod h1:4HMyA2/4dz7bWz1qS7migZjb1LgLUM1wkDImf3/qbaA=
 github.com/sofiukl/oms/oms-core v0.0.0-20210131141455-edc2108e1c17 h1:p6oestuxbhDqHzVInu6XXztmeQIVPHO9U9ea95iC65I=
 github.com/sofiukl/oms/oms-core v0.0.0-20210131141455-edc2108e1c17/go.mod h1:5zTfhgHFtYQ3zLM3GcfULUOJAm8NJEg1OCjaxRw2Gsw=
 github.com/soheilhy/cmux v0.1.4/go.mod h1:IM3LyeVVIOuxMH7sFAkER9+bJ4dT7Ms6E4xg4kGIyLM=

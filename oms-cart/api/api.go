@@ -12,9 +12,9 @@ import (
 func FindCart(id string, w http.ResponseWriter, r *http.Request) {
 
 	cart := models.CartModel{
-		ID: "c1",
+		ID: "c2",
 		Products: []models.ProductModel{
-			{ID: "p1", Qty: 1},
+			{ID: "p1", Quantity: 1},
 		},
 	}
 
@@ -23,5 +23,5 @@ func FindCart(id string, w http.ResponseWriter, r *http.Request) {
 	inrec, _ := json.Marshal(cart)
 	json.Unmarshal(inrec, &inInterface)
 
-	utils.RespondWithJSON(w, http.StatusOK, "Cart find successfully", "", inInterface)
+	utils.RespondWithJSON(w, http.StatusOK, "Cart found successfully", "", inInterface)
 }

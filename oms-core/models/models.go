@@ -19,8 +19,8 @@ type Product struct {
 
 // ProductModel - model for taking product info
 type ProductModel struct {
-	ID  string `json:"id"`
-	Qty int    `json:"qty"`
+	ID       string `json:"id"`
+	Quantity int    `json:"quantity"`
 }
 
 // CartModel - cart model

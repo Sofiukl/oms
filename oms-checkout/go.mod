@@ -8,6 +8,7 @@ require (
 	github.com/jackc/pgx/v4 v4.10.1
 	github.com/mitchellh/mapstructure v1.4.1
 	github.com/sofiukl/go-queue v0.0.0-20190625102930-82c08929daa8
+	github.com/sofiukl/oms v1.0.1 // indirect
 	github.com/sofiukl/oms/oms-core v0.0.0-20210131141455-edc2108e1c17
 	github.com/spf13/viper v1.7.1
 )
