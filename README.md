@@ -1,9 +1,9 @@
 # Order Management System (OMS)
-This repository contains for sample code of Order Management System. The code is writtem keeping focus on
+This repository contains sample code of Order Management System. The code is written keeping focus on
 concurrency handling.
 
 # modules
-It has the below modules which can be run as separate microservic.
+It has the below modules which can be run as separate microservice.
 product: Implementation of product related APIs [port 3004]
 Cart: Implementation of cart [port 3006]
 Checkout: Implementation of checkout module [port 3005]
