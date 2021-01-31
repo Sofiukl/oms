@@ -7,6 +7,6 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/jackc/pgx/v4 v4.10.1
 	github.com/mitchellh/mapstructure v1.4.1
-	github.com/sofiukl/oms/oms-core v0.0.0-20210131152629-f31c7250f011
+	github.com/sofiukl/oms/oms-core v0.0.0-20210131180927-2fcd1fd10930
 	github.com/spf13/viper v1.7.1
 )
