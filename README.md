@@ -25,15 +25,15 @@ running the application.
 
 # API Documentation
 1. Checkout API
-<code>POST<code>
-<pre> http://localhost:3005/checkout-service/api/v1/checkout/ <pre>
-<code>Request Body<code>
+<pre>POST
+http://localhost:3005/checkout-service/api/v1/checkout/
+Request Body
     <pre> {
         "cart_id": "c1",
         "amount": 100
     } </pre>
 
 Response: 
-    Status: 201 (checkout will be processed internally)
+    Status: 201 (checkout will be processed internally) </pre>
 
 Others to be updated
