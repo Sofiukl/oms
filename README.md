@@ -2,7 +2,7 @@
 This repository contains sample code of Order Management System. The code is written keeping focus on
 concurrency handling.
 
-# modules
+# Modules
 It has the below modules which can be run as separate microservice.
 product: Implementation of product related APIs [port 3004]
 Cart: Implementation of cart [port 3006]
@@ -14,7 +14,7 @@ service app.env file using key DBURL. app.env file also contain the application 
 Note: Different business cases, business validations, error handling and code comments are not in place.
 We are focing here on concurrency handling.
 
-# architrcture
+# Architrcture
 To Be Updated
 
 
