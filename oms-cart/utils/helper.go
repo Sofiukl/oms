@@ -23,7 +23,7 @@ func RespondWithError(w http.ResponseWriter, code int, message string, details s
 }
 
 //RespondWithJSON - respond with json
-func RespondWithJSON(w http.ResponseWriter, code int, message string, details string, payload interface{}) {
+func RespondWithJSON(w http.ResponseWriter, code int, message string, details string, payload map[string]interface{}) {
 	isError := false
 	if code != 200 {
 		isError = true

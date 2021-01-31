@@ -2,6 +2,7 @@ package api
 
 import (
 	"context"
+	"encoding/json"
 	"log"
 	"net/http"
 
@@ -50,5 +51,9 @@ func FindProduct(conn1 *pgxpool.Pool, config utils.Config, prodID string, w http
 	}
 
 	// Return response
-	utils.RespondWithJSON(w, http.StatusOK, "Product find successfully", "", prod)
+	var inInterface map[string]interface{}
+	inrec, _ := json.Marshal(prod)
+	json.Unmarshal(inrec, &inInterface)
+
+	utils.RespondWithJSON(w, http.StatusOK, "Product find successfully", "", inInterface)
 }

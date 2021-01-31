@@ -20,7 +20,7 @@ type Product struct {
 // ProductModel - model for taking product info
 type ProductModel struct {
 	ID  string `json:"id"`
-	Qty int    `json:"quantity"`
+	Qty int    `json:"qty"`
 }
 
 // CartModel - cart model

@@ -54,7 +54,6 @@ func CheckoutProduct(conn *pgxpool.Pool, config utils.Config, body models.Checko
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("at last before success return")
 	// Return response
 	//utils.RespondWithJSON(w, http.StatusOK, msg, "", map[string]interface{}{"referenceNo": "R001"})
 }
@@ -93,9 +92,12 @@ func checkout(tx pgx.Tx, product models.ProductModel, amount float64, lock *sync
 	id := product.ID
 	qty := product.Qty
 
+	fmt.Println(id, qty)
 	lock.Lock()
 	defer lock.Unlock()
 	prod, err := findProduct(id)
+
+	fmt.Printf("%+v", prod)
 
 	// var name string
 	// var availQty int
@@ -108,7 +110,6 @@ func checkout(tx pgx.Tx, product models.ProductModel, amount float64, lock *sync
 	// log.Println(name, availQty, reserveQty)
 	// prod := &models.Product{ID: id, Name: name, AvailQty: availQty, ReserveQty: reserveQty}
 
-	fmt.Printf("%+v", prod)
 	if err == nil {
 		if prod.AvailQty-prod.ReserveQty < qty {
 			fmt.Println("out of stock")
@@ -119,13 +120,11 @@ func checkout(tx pgx.Tx, product models.ProductModel, amount float64, lock *sync
 			updateReserveQty(tx, id, qty, "increase")
 			err = payment(id, amount)
 			if err == nil {
-				fmt.Println("1")
 				fmt.Println(err)
 				fmt.Println(prod)
 				updateAvailQty(tx, id, qty)
 				updateReserveQty(tx, id, qty, "decrease")
-				fmt.Println("suceessfully bought")
-				return "Yup! you successfully checkout the product", nil
+				return "Yup! you successfully bought the product", nil
 			} else {
 				fmt.Println("2")
 				prod, err = findProduct(id)
@@ -135,7 +134,6 @@ func checkout(tx pgx.Tx, product models.ProductModel, amount float64, lock *sync
 			}
 		}
 	} else {
-		fmt.Println("find product fsil checkout()")
 		log.Println(err)
 		return "Fail to checkout at this moment", fmt.Errorf("Fail to checkout st this moment")
 	}
@@ -185,14 +183,12 @@ func findCartDetails(id string) (models.ProductModel, error) {
 
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
-	//fmt.Println(string(body))
+	fmt.Println(string(body))
 	if err = json.Unmarshal(body, &gresp); err != nil {
 		log.Println(err)
 		return prod, fmt.Errorf("Fail to fetch produt")
 	}
 	mapstructure.Decode(gresp.Result, &cart)
-	fmt.Println(cart)
-	fmt.Println(cart.ID)
 	fmt.Println(cart.Products)
 	return cart.Products[0], nil
 }
