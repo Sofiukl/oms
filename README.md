@@ -14,9 +14,26 @@ service app.env file using key DBURL. app.env file also contain the application 
 Note: Different business cases, business validations, error handling and code comments are not in place.
 We are focing here on concurrency handling.
 
+# Check Out Process Details (Algorithm)
+1. Start transaction
+2. Find cart details calling cart microservice
+3. Acquire lock 
+4. Check order quantity is available or not using below snipet
+    if (available quanity - reserve quantity < order quantity) then product "out of stock"
+5. If order quantity available then proceed
+    5.1 update reserve quantity += order quantity
+    5.2 process payment
+    5.3 if payment success then decrease available quantity as below
+        reserve quantity -= order quantity
+        available quantity -= order quantity
+    5.4 if payment fails then revert reserve quanity as below
+        reserve quantity -= order quantity
+6. Release lock
+7. Commit transaction
+
+
 # Architrcture
 To Be Updated
-
 
 # SQL Script
 Please refer to the file postgress.sql. Database and tables need to created before
@@ -41,4 +58,4 @@ Others to be updated
 
 # API Gateway
 NGINX is used for api gateway and load balance. Configuration can be found in folder
-nginx in root
+nginx in root.
