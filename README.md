@@ -36,3 +36,8 @@ Response:
     Status: 201 (checkout will be processed internally)
 
 Others to be updated
+
+
+# API Gateway
+NGINX is used for api gateway and load balance. Configuration can be found in folder
+nginx in root
