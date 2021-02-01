@@ -1,9 +1,9 @@
 # Order Management System (OMS)
-This repository contains for sample code of Order Management System. The code is writtem keeping focus on
+This repository contains sample code of Order Management System. The code is written keeping focus on
 concurrency handling.
 
-# modules
-It has the below modules which can be run as separate microservic.
+# Modules
+It has the below modules which can be run as separate microservice.
 product: Implementation of product related APIs [port 3004]
 Cart: Implementation of cart [port 3006]
 Checkout: Implementation of checkout module [port 3005]
@@ -14,7 +14,7 @@ service app.env file using key DBURL. app.env file also contain the application 
 Note: Different business cases, business validations, error handling and code comments are not in place.
 We are focing here on concurrency handling.
 
-# architrcture
+# Architrcture
 To Be Updated
 
 
@@ -25,15 +25,16 @@ running the application.
 
 # API Documentation
 1. Checkout API
-POST http://localhost:3005/checkout-service/api/v1/checkout/
+<pre>POST
+http://localhost:3005/checkout-service/api/v1/checkout/
 Request Body
-    {
+    <pre> {
         "cart_id": "c1",
         "amount": 100
-    }
+    } </pre>
 
 Response: 
-    Status: 201 (checkout will be processed internally)
+    Status: 201 (checkout will be processed internally) </pre>
 
 Others to be updated
 
