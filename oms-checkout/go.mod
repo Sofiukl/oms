@@ -9,4 +9,5 @@ require (
 	github.com/mitchellh/mapstructure v1.4.1
 	github.com/sofiukl/oms/oms-core v0.0.0-20210131180927-2fcd1fd10930
 	github.com/spf13/viper v1.7.1
+	golang.org/x/sys v0.0.0-20220701225701-179beb0bd1a1 // indirect
 )

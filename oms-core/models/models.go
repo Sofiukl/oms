@@ -34,3 +34,8 @@ type CheckoutModel struct {
 	CartID string  `json:"cart_id"`
 	Amount float64 `json:"amount"`
 }
+
+type OrderModel struct {
+	OrderID      string `json:"order_id,omitempty"`
+	OrderAddress string `json:"order_address,omitempty"`
+}
